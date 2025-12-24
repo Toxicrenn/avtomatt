@@ -1,5 +1,5 @@
 import pytest
-from string_utilits import StringUtils 
+from lesson_04.string_utilits import StringUtils 
 
 string_utils = StringUtils()
 
@@ -39,7 +39,7 @@ def test_trim_positive(input_str, expected):
     ('test   ', 'test   '),
     ('santa', 'santa'),
 ])
-def test_trim_positive(input_str, expected):
+def test_trim_negative(input_str, expected):
     assert string_utils.trim(input_str) == expected
 
 @pytest.mark.positive
@@ -58,7 +58,7 @@ def test_contains_positive(input_str, input_sym, expected):
     ('......', 'd', True),
     ('    ', 'l', True)
 ])
-def test_contains_positive(input_str, input_sym, expected):
+def test_contains_negative(input_str, input_sym, expected):
     assert string_utils.contains(input_str, input_sym) == expected
 
 @pytest.mark.positive
@@ -77,5 +77,5 @@ def test_delete_symbol_positive(input_str, input_sym, expected):
     ('321456', '2', '21456'),
     ('Yyear', 'y', 'year')
 ])
-def test_delete_symbol_positive(input_str, input_sym, expected):
+def test_delete_symbol_negative(input_str, input_sym, expected):
     assert string_utils.delete_symbol(input_str, input_sym) == expected
