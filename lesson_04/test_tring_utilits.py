@@ -27,7 +27,7 @@ def test_capitalize_negative(input_str, expected):
 @pytest.mark.parametrize ("input_str, expected", [
     ("   hi", "hi"),
     ("        sugar and tea", "sugar and tea"),
-    ("Phone", " Phone"),
+    (" Phone", "Phone"),
 ])
 def test_trim_positive(input_str, expected):
     assert string_utils.trim(input_str) == expected
@@ -46,7 +46,7 @@ def test_trim_negative(input_str, expected):
 @pytest.mark.parametrize("input_str, input_sym, expected",[
     ('symbol', 's', True),
     ('tree', 'd', False),
-    ('New Year', 'n', True)
+    ('New Year', 'N', True)
 ])
 def test_contains_positive(input_str, input_sym, expected):
     assert string_utils.contains(input_str, input_sym) == expected
