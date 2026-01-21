@@ -1,10 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from Calc_pages.DelayField import Delay_Field
 from Calc_pages.Buttons import Buttons
 from Calc_pages.Result import Result
 
 def test_calc():
-    browser = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--private')
+    browser = webdriver.Chrome(
+        options=chrome_options
+    )
     delay_time = '45'
 
     delay_field = Delay_Field(browser)
@@ -21,4 +26,4 @@ def test_calc():
 
 
 
-#pytest lesson_07/calc.py
+#pytest lesson_07/test_calc.py
