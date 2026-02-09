@@ -1,8 +1,10 @@
 import math
 
+
 def square(side):
-    x = side*side
+    x = side * side
     print(x)
+
 
 side = input("Введите длину: ")
 

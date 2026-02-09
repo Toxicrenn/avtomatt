@@ -6,33 +6,33 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Firefox()
 
-#зайти на сайт
-driver.get('http://the-internet.herokuapp.com/login')
+# зайти на сайт
+driver.get("http://the-internet.herokuapp.com/login")
 
-#ввести имя пользователя
+# ввести имя пользователя
 input_username = driver.find_element(By.CSS_SELECTOR, 'input[id="username"]')
 
-username = 'tomsmith'
+username = "tomsmith"
 
 input_username.send_keys(username)
 
 sleep(1.5)
 
-#ввести пароль
+# ввести пароль
 input_password = driver.find_element(By.CSS_SELECTOR, 'input[id="password"]')
 
-password = 'SuperSecretPassword!'
+password = "SuperSecretPassword!"
 
 input_password.send_keys(password)
 
 sleep(1.5)
 
-#нажать на кнопку login
-button = driver.find_element(By.CSS_SELECTOR, 'button.radius')
+# нажать на кнопку login
+button = driver.find_element(By.CSS_SELECTOR, "button.radius")
 
 button.click()
 
-#вывести текст 
+# вывести текст
 text = driver.find_element(By.CSS_SELECTOR, 'div[id="flash"]').text
 
 print(text)

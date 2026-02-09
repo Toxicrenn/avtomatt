@@ -8,16 +8,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 
-driver.get('https://bonigarcia.dev/selenium-webdriver-java/loading-images.html')
+driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
 
 waiter = WebDriverWait(driver, 20)
 
-img = waiter.until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, "#award"))
-)
+img = waiter.until(EC.presence_of_element_located((By.CSS_SELECTOR, "#award")))
 
-src = img.get_attribute('src')
+src = img.get_attribute("src")
 print(src)
 
 driver.quit()
-

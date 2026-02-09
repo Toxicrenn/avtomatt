@@ -4,11 +4,11 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
-driver.get('http://uitestingplayground.com/textinput')
+driver.get("http://uitestingplayground.com/textinput")
 
-text_field = driver.find_element(By.CSS_SELECTOR, '#newButtonName')
+text_field = driver.find_element(By.CSS_SELECTOR, "#newButtonName")
 
-text = 'SkyPro'
+text = "SkyPro"
 
 text_field.send_keys(text)
 
