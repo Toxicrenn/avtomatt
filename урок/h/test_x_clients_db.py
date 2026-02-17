@@ -1,10 +1,16 @@
+import allure
 from CompanyApi import CompanyApi
 from CompanyTable import CompanyTable
 
 api = CompanyApi("http://5.101.50.27:8000")
 db = CompanyTable("postgresql://qa:skyqa@5.101.50.27:5432/x_clients")
 
-
+@allure.id("test -1")
+@allure.title("получение списка компаний")
+@allure.epic("компании")
+@allure.story("получение компаний")
+@allure.feature("новое")
+@allure.description("запрос организация с параметром актив = тру")
 def test_get_companies():
     # Шаг1: получить список компаний через API:
     api_result = api.get_company_list()
@@ -15,7 +21,8 @@ def test_get_companies():
     # Шаг2: проверить, что списки равны
     assert len(api_result) == len(db_result)
 
-
+@allure.id("test -2")
+@allure.title("создание компании")
 def test_add_new():
     body = api.get_company_list()
     len_before = len(body)
@@ -41,7 +48,7 @@ def test_add_new():
 
     assert found
 
-
+@allure.id("test -3")
 def test_get_ones_company():
     name = "Skypro"
 
@@ -60,7 +67,7 @@ def test_get_ones_company():
     assert new_company["name"] == name
     assert new_company["is_active"] is True
 
-
+@allure.id("test -4")
 def test_edit():
     name = "Skypro"
 
@@ -79,7 +86,7 @@ def test_edit():
     assert edited["name"] == new_name
     assert edited["description"] == new_descr
 
-
+@allure.id("test -5")
 def test_delete():
     name = "Skypro"
 
@@ -99,7 +106,7 @@ def test_delete():
     rows = db.get_company_by_id(max_id)
     assert len(rows) == 0
 
-
+@allure.id("test -6")
 def test_deactivate():
     name = "Skypro"
 
@@ -115,7 +122,7 @@ def test_deactivate():
 
     assert body["is_active"] is False
 
-
+@allure.id("test -7")
 def test_deactivate_and_activate_back():
     name = "Skypro"
 

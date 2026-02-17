@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-
+import allure
 
 class Delay_Field:
     def __init__(self, browser):
@@ -8,6 +8,7 @@ class Delay_Field:
             "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html"
         )
 
-    def test_calc(self, time):
+    @allure.step("Ввести время {time} в секундомер")
+    def test_calc(self, time:int):
         self._driver.find_element(By.CSS_SELECTOR, "#delay").clear()
         self._driver.find_element(By.CSS_SELECTOR, "#delay").send_keys(time)

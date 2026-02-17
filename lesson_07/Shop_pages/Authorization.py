@@ -1,13 +1,14 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import allure
 
 class OpenWebsite:
     def __init__(self, browser):
         self._driver = browser
         self._driver.get("https://www.saucedemo.com/")
 
+    @allure.step("Ввод пароля и логина")
     def authorization(self):
         self._driver.find_element(By.CSS_SELECTOR, "#user-name").send_keys(
             "standard_user"

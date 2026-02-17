@@ -5,8 +5,12 @@ from Shop_pages.Authorization import OpenWebsite
 from Shop_pages.Shopping import Shopping
 from Shop_pages.Checkout import Checkout
 from Shop_pages.Form import Form
+import allure
 
-
+@allure.title("Тестирование магазина")
+@allure.description("Проверка корректности суммы заказа")
+@allure.feature("Shopping")
+@allure.severity("Blocker")
 def test_shop():
     service = Service(executable_path=r"C:\Users\ari\Desktop\тест\geko\geckodriver.exe")
     firefox_options = Options()
@@ -14,18 +18,23 @@ def test_shop():
     browser = webdriver.Firefox(service=service, options=firefox_options)
 
     open_website = OpenWebsite(browser)
-    open_website.authorization()
+    with allure.step("Авторизация на сайте"):
+        open_website.authorization()
 
-    shopping = Shopping(browser)
-    shopping.shopping()
+    with allure.step("Пополнение корзины"):
+        shopping = Shopping(browser)
+        shopping.shopping()
 
-    checkout = Checkout(browser)
-    checkout.checkout()
+    with allure.step("Переход в корзину"):
+        checkout = Checkout(browser)
+        checkout.checkout()
 
-    result = Form(browser)
-    shopping_result = result.form()
-
-    assert "$58.29" in shopping_result
+    with allure.step("Оформление доставки"):
+        result = Form(browser)
+        shopping_result = result.form()
+    
+    with allure.step("Проверка суммы заказа"):
+        assert "$58.29" in shopping_result
 
 
 # pytest lesson_07/test_shop.py
