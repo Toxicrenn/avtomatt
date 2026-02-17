@@ -1,6 +1,6 @@
-from user import User 
+from user import User
 
-my_user = User('renata', 'asadova')
+my_user = User("renata", "asadova")
 
 print(my_user.name())
 print(my_user.fam())

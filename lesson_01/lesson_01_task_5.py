@@ -1,5 +1,6 @@
 def call(num):
-    print(num, end='')  
+    print(num, end="")
+
 
 call(8)
 call(8)

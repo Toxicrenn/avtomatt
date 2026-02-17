@@ -2,10 +2,10 @@ from addres import Address
 
 from mailing import Mailing
 
-to_adr = Address('1505', 'moscow', 'dream', 15, 22)
-from_adr = Address ('1606', 'tver', 'search', 89, 87)
+to_adr = Address("1505", "moscow", "dream", 15, 22)
+from_adr = Address("1606", "tver", "search", 89, 87)
 
-mail = Mailing(to_adr, from_adr, 555.6, 'ABC321')
+mail = Mailing(to_adr, from_adr, 555.6, "ABC321")
 
 print(
     f"Отправление {mail.track} из "
