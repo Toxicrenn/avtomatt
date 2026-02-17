@@ -2,13 +2,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
+from selenium.webdriver.remote.webdriver import WebDriver
 
 class Form:
-    def __init__(self, browser):
+    def __init__(self, browser:WebDriver) -> None:
         self._driver = browser
 
     @allure.step("Ввод значений в поле для доставки")
-    def form(self)->float:
+    def form(self) -> float:
         self._driver.find_element(By.CSS_SELECTOR, "#first-name").send_keys("Renata")
         self._driver.find_element(By.CSS_SELECTOR, "#last-name").send_keys("Asadova")
         self._driver.find_element(By.CSS_SELECTOR, "#postal-code").send_keys("140141")

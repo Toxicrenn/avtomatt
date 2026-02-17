@@ -6,7 +6,9 @@ from Calc_pages.Result import Result
 import allure
 
 @allure.title("Тестирование калькулятора")
-@allure.description("Проверка калькулятора на корректность расчета и ожидание указанного времени в таймере")
+@allure.description(
+    "Проверка калькулятора на корректность расчета и ожидание указанного времени в таймере"
+)
 @allure.feature("Сalculation")
 @allure.severity("Blocker")
 def test_calc():
@@ -26,8 +28,8 @@ def test_calc():
     with allure.step("Ожидание результата"):
         calc_result = Result(browser, delay_time)
         result = calc_result.waitng_results()
-        
-    with allure.step("Проверка корректности вычислений"):    
+
+    with allure.step("Проверка корректности вычислений"):
         assert result == "15"
 
 

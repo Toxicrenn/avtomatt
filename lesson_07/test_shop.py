@@ -7,6 +7,7 @@ from Shop_pages.Checkout import Checkout
 from Shop_pages.Form import Form
 import allure
 
+
 @allure.title("Тестирование магазина")
 @allure.description("Проверка корректности суммы заказа")
 @allure.feature("Shopping")
@@ -32,9 +33,11 @@ def test_shop():
     with allure.step("Оформление доставки"):
         result = Form(browser)
         shopping_result = result.form()
-    
+
     with allure.step("Проверка суммы заказа"):
         assert "$58.29" in shopping_result
 
 
 # pytest lesson_07/test_shop.py
+# .\run.bat
+# allure open final-report
