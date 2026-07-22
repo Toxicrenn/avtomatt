@@ -211,3 +211,4 @@ final-report/
 __pycache__/
 .pytest_cache/
 .vscode/
+*.docx
