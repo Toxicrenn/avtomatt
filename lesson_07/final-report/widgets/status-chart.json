@@ -1,1 +1,0 @@
-[{"uid":"c5abc265cdfa706","name":"Тестирование магазина","time":{"start":1771334637105,"stop":1771334646343,"duration":9238},"status":"passed","severity":"blocker"},{"uid":"1ed798b56b9a091e","name":"Тестирование калькулятора","time":{"start":1771334587448,"stop":1771334637101,"duration":49653},"status":"passed","severity":"blocker"}]
